@@ -91,19 +91,16 @@ nav{position:absolute;top:0;left:0;right:0;z-index:5;height:76px;display:flex;al
 .hero .btn.p:hover{background:var(--bg);border-color:var(--bg);color:var(--ink)}
 @keyframes sobe{to{opacity:1;transform:none}}
 
+/* TRABALHOS: adornos leves aos lados da grade (meia mandala em cima, mariposa-lua em baixo, espelhados) */
+#trabalhos .orn.ld{left:auto;transform:none}
+#trabalhos .md-l,#trabalhos .md-r{width:min(40vw,620px);top:300px;opacity:.07;-webkit-mask-image:radial-gradient(closest-side,#000 55%,transparent);mask-image:radial-gradient(closest-side,#000 55%,transparent)}
+#trabalhos .md-l{left:calc(min(40vw,620px) / -2)}
+#trabalhos .md-r{right:calc(min(40vw,620px) / -2)}
+#trabalhos .mp-l,#trabalhos .mp-r{width:min(20vw,320px);top:58%;opacity:.09;-webkit-mask-image:linear-gradient(180deg,transparent,#000 18%,#000 72%,transparent);mask-image:linear-gradient(180deg,transparent,#000 18%,#000 72%,transparent)}
+#trabalhos .mp-l{left:max(-60px,calc(50% - 640px - min(20vw,320px)))}
+#trabalhos .mp-r{right:max(-60px,calc(50% - 640px - min(20vw,320px)));transform:scaleX(-1)}
 /* TRABALHOS */
-.dest{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2vw,30px);margin:46px 0 0}
-.dest figure{display:flex;flex-direction:column;align-items:center;gap:14px}
-.d-fo{position:relative;width:100%;padding:clamp(10px,1.1vw,16px);background:#EFEBE3 var(--grao);box-shadow:0 26px 50px -30px rgba(24,24,26,.55),0 2px 8px rgba(24,24,26,.08)}
-.d-fo::after{content:"";position:absolute;inset:6px;border:1px solid rgba(24,24,26,.16);pointer-events:none}
-.d-fo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;-webkit-user-drag:none}
-.dest figcaption{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
-.dest figcaption b{font:500 20px/1.2 Jost,sans-serif}
-.dest figcaption span{font:400 12px/1 'Plex Mono',monospace;letter-spacing:.05em;color:var(--mut,#6b6862)}
-.d-q{background:none;border:0;border-bottom:1px solid var(--or);padding:2px 0 4px;font:500 15px/1 Jost,sans-serif;color:var(--ink);cursor:pointer;transition:color .3s var(--ez),border-color .3s var(--ez)}
-.d-q:hover{color:var(--or2);border-color:var(--ink)}
-.todos{font:500 clamp(24px,2.4vw,30px)/1.1 Jost,sans-serif;text-align:center;margin:76px 0 0}
-.filt{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:24px 0 30px}
+.filt{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:34px 0 30px}
 .filt button{height:42px;padding:0 18px;border:1px solid var(--line);background:transparent;font:500 15px/1 Jost,sans-serif;color:var(--ink);cursor:pointer;transition:background .3s var(--ez),border-color .3s var(--ez),color .3s var(--ez)}
 .filt button:hover{border-color:var(--ink)}
 .filt button.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
@@ -214,12 +211,9 @@ footer a:hover{border-color:var(--ink)}
  .h-mote{font-size:19px;padding:0 10px}
  .orn{opacity:.06}
  .grid{grid-template-columns:1fr 1fr;gap:8px}
- .dest{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;gap:14px;margin:34px -20px 0;padding:0 20px 8px;scrollbar-width:none}
- .dest::-webkit-scrollbar{display:none}
- .dest figure{flex:0 0 78%;scroll-snap-align:center}
- .dest figure{flex-basis:min(78%,340px)}
- .todos{margin-top:54px}
- .orn.md{width:120vw;opacity:.04}.orn.lt{width:96vw;opacity:.06}
+ .orn.md{width:120vw;opacity:.04}
+ #trabalhos .md-l,#trabalhos .md-r{width:64vw;opacity:.06}#trabalhos .md-l{left:-32vw}#trabalhos .md-r{right:-32vw}
+ #trabalhos .mp-l,#trabalhos .mp-r{width:34vw;opacity:.07}#trabalhos .mp-l{left:-14vw}#trabalhos .mp-r{right:-14vw}.orn.lt{width:96vw;opacity:.06}
  .h-fundo{width:170vw;top:46%}
  .par{gap:10px}
  .par figure{padding:5px}
@@ -285,16 +279,13 @@ footer a:hover{border-color:var(--ink)}
 </header>
 
 <section id="trabalhos">
- <img class="orn md" src="img/fundo/mandala-tinta.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn ld md-l" src="img/fundo/mandala-tinta.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn ld md-r" src="img/fundo/mandala-tinta.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn ld mp-l" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn ld mp-r" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
  <div class="wrap">
   <h2 class="rv">Trabalhos</h2>
   <p class="lead rv">Mandalas em dotwork, geometria e fine line, desenhadas à medida de cada pessoa e de cada parte do corpo.</p>
-  <div class="dest" id="dest">
-   <figure class="rv" data-t="Mandala / geometria" data-n="a mandala dotwork na perna"><div class="d-fo"><img src="img/dest/0.webp" alt="Mandala em dotwork na perna, por Tiago Freitas" draggable="false"></div><figcaption><b>Mandala dotwork</b><span>Perna · 10 divisões</span></figcaption><button class="d-q" type="button">Quero uma assim</button></figure>
-   <figure class="rv" data-t="Fine line" data-n="a mariposa-lua em fine line"><div class="d-fo"><img src="img/dest/1.webp" alt="Mariposa-lua em fine line na coxa, por Tiago Freitas" draggable="false"></div><figcaption><b>Mariposa-lua</b><span>Fine line · coxa</span></figcaption><button class="d-q" type="button">Quero uma assim</button></figure>
-   <figure class="rv" data-t="Mandala / geometria" data-n="a mandala com flor da vida no ombro"><div class="d-fo"><img src="img/dest/2.webp" alt="Mandala com flor da vida no ombro, por Tiago Freitas" draggable="false"></div><figcaption><b>Mandala e flor da vida</b><span>Ombro · pontilhismo</span></figcaption><button class="d-q" type="button">Quero uma assim</button></figure>
-  </div>
-  <h3 class="todos rv">Todos os trabalhos</h3>
   <div class="filt rv" id="filt">
    <button class="on" data-f="*">Todos</button>
    <button data-f="geo">Geometria</button>
@@ -452,18 +443,12 @@ const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
  }).catch(()=>fo.classList.add('estatica'));
 })();
 
-// DESTAQUES: "Quero uma assim" preenche o pedido
-document.querySelectorAll('#dest .d-q').forEach(b=>b.addEventListener('click',()=>{const f=b.closest('figure');
- const ch=document.querySelector(`#form input[name=tema][value="${f.dataset.t}"]`);if(ch)ch.checked=true;
- const id=document.getElementById('ideia');id.value='Vi no site '+f.dataset.n+' e quero algo nesse estilo. ';
- document.getElementById('marcar').scrollIntoView();setTimeout(()=>id.focus({preventScroll:true}),700)}));
-
 // TRABALHOS
 const T='geo fl rt geo fl geo rt geo fl geo rt fl geo fl geo fl rt geo fl lt geo fl rt geo fl geo fl geo rt lt geo fl geo rt fl geo fl geo fl geo lt fl geo rt fl geo fl geo rt fl geo lt geo fl fl fl fl fl lt'.split(' ');
 const NOMES={geo:'Geometria e mandala',fl:'Fine line',rt:'Retrato em linha',lt:'Lettering'};
 const g=document.getElementById('grid');let f='*',lim=24,vis=[];
 const nn=i=>String(i).padStart(2,'0');
-function draw(){vis=T.map((t,i)=>({t,i})).filter(o=>f=='*'?![0,1,3].includes(o.i):o.t==f);   /* no Todos, as 3 em destaque não se repetem */
+function draw(){vis=T.map((t,i)=>({t,i})).filter(o=>f=='*'||o.t==f);
  g.innerHTML=vis.slice(0,lim).map((o,k)=>`<a href="img/g/${nn(o.i)}.webp" data-k="${k}"><img src="img/g/s/${nn(o.i)}.webp" alt="${NOMES[o.t]} por Tiago Freitas" draggable="false"></a>`).join('');
  document.getElementById('mais').parentNode.hidden=vis.length<=lim}
 draw();
