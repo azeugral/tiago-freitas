@@ -45,12 +45,14 @@ section{position:relative;overflow:hidden;padding:110px 0}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ez),transform .7s var(--ez)}
 .rv.in{opacity:1;transform:none}
 
-/* adornos: traço do próprio Tiago (lótus e mariposa-lua), estáticos e apagados */
-.orn{position:absolute;z-index:0;pointer-events:none;user-select:none;-webkit-user-drag:none;opacity:.09}
-.orn.m{transform:scaleX(-1)}
+/* fundos: a mandala reconstruída dele e a lótus, apagadas ao centro de cada secção (estáticas) */
+.orn{position:absolute;z-index:0;left:50%;pointer-events:none;user-select:none;-webkit-user-drag:none;transform:translateX(-50%)}
+.orn.md{width:min(78vw,900px);top:-6%;opacity:.045;-webkit-mask-image:radial-gradient(closest-side,#000 40%,transparent);mask-image:radial-gradient(closest-side,#000 40%,transparent)}
+.orn.lt{width:min(64vw,700px);top:30px;opacity:.07;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 85%);mask-image:linear-gradient(180deg,#000 30%,transparent 85%)}
+section>.wrap{position:relative;z-index:1}
 
 /* NAV (sobre o hero escuro) */
-nav{position:absolute;top:0;left:0;right:0;z-index:5;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 max(20px,calc((100% - 1240px)/2));color:var(--bg)}
+nav{position:absolute;top:0;left:0;right:0;z-index:5;height:76px;display:flex;align-items:center;justify-content:center;padding:0 max(20px,calc((100% - 1240px)/2));color:var(--bg)}
 .logo{font:500 21px/1 Jost,sans-serif;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
 .links{display:flex;gap:30px;align-items:center}
 .links a{font:500 15px/1 Jost,sans-serif;text-decoration:none;letter-spacing:.02em;position:relative}
@@ -62,6 +64,7 @@ nav{position:absolute;top:0;left:0;right:0;z-index:5;height:76px;display:flex;al
 /* HERO: ponto a ponto, a mandala dele nasce na folha */
 .hero{--tinta:#151514;position:relative;min-height:100svh;background:var(--tinta);color:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(18px,2.6svh,28px);padding:96px 20px clamp(30px,4svh,46px);overflow:hidden}
 .hero::before{content:"";position:absolute;left:50%;top:48%;width:min(1200px,130vw);aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(236,232,224,.07),rgba(236,232,224,.02) 55%,transparent);pointer-events:none}
+.h-fundo{position:absolute;left:50%;top:calc(50% - 30px);width:min(150svh,1500px);aspect-ratio:1;transform:translate(-50%,-50%);opacity:.032;pointer-events:none;-webkit-mask-image:radial-gradient(closest-side,#000 55%,transparent);mask-image:radial-gradient(closest-side,#000 55%,transparent)}
 .hero::after{content:"";position:absolute;inset:0;background:var(--grao);opacity:.5;pointer-events:none}
 .palco{--fh:clamp(330px,calc(100svh - 330px),720px);position:relative;z-index:1;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(30px,4.2vw,76px);width:100%;max-width:1440px}
 .lado{display:flex;flex-direction:column;gap:16px;opacity:0;transform:translateY(10px);animation:sobe .8s var(--ez) .1s forwards}
@@ -89,9 +92,18 @@ nav{position:absolute;top:0;left:0;right:0;z-index:5;height:76px;display:flex;al
 @keyframes sobe{to{opacity:1;transform:none}}
 
 /* TRABALHOS */
-#trabalhos .orn{width:min(30vw,420px);bottom:40px;-webkit-mask-image:linear-gradient(0deg,transparent,#000 20%,#000 70%,transparent);mask-image:linear-gradient(0deg,transparent,#000 20%,#000 70%,transparent)}
-#trabalhos .orn.l{left:-80px}#trabalhos .orn.r{right:-80px}
-.filt{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:34px 0 30px}
+.dest{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2vw,30px);margin:46px 0 0}
+.dest figure{display:flex;flex-direction:column;align-items:center;gap:14px}
+.d-fo{position:relative;width:100%;padding:clamp(10px,1.1vw,16px);background:#EFEBE3 var(--grao);box-shadow:0 26px 50px -30px rgba(24,24,26,.55),0 2px 8px rgba(24,24,26,.08)}
+.d-fo::after{content:"";position:absolute;inset:6px;border:1px solid rgba(24,24,26,.16);pointer-events:none}
+.d-fo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;-webkit-user-drag:none}
+.dest figcaption{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.dest figcaption b{font:500 20px/1.2 Jost,sans-serif}
+.dest figcaption span{font:400 12px/1 'Plex Mono',monospace;letter-spacing:.05em;color:var(--mut,#6b6862)}
+.d-q{background:none;border:0;border-bottom:1px solid var(--or);padding:2px 0 4px;font:500 15px/1 Jost,sans-serif;color:var(--ink);cursor:pointer;transition:color .3s var(--ez),border-color .3s var(--ez)}
+.d-q:hover{color:var(--or2);border-color:var(--ink)}
+.todos{font:500 clamp(24px,2.4vw,30px)/1.1 Jost,sans-serif;text-align:center;margin:76px 0 0}
+.filt{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:24px 0 30px}
 .filt button{height:42px;padding:0 18px;border:1px solid var(--line);background:transparent;font:500 15px/1 Jost,sans-serif;color:var(--ink);cursor:pointer;transition:background .3s var(--ez),border-color .3s var(--ez),color .3s var(--ez)}
 .filt button:hover{border-color:var(--ink)}
 .filt button.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
@@ -103,7 +115,6 @@ nav{position:absolute;top:0;left:0;right:0;z-index:5;height:76px;display:flex;al
 
 /* DA FOTO À PELE */
 #retrato{background:var(--bg2) var(--grao)}
-#retrato .orn{width:min(70vw,760px);left:50%;top:40px;margin-left:calc(min(70vw,760px) / -2);opacity:.075;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 85%);mask-image:linear-gradient(180deg,#000 30%,transparent 85%)}
 .pares-tabs{display:flex;justify-content:center;gap:8px;margin:32px 0 28px;flex-wrap:wrap}
 .pares-tabs button{height:42px;padding:0 18px;border:1px solid var(--line);background:transparent;font:500 15px/1 Jost,sans-serif;color:var(--ink);cursor:pointer;transition:background .3s var(--ez),color .3s var(--ez),border-color .3s var(--ez)}
 .pares-tabs button[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
@@ -114,7 +125,6 @@ nav{position:absolute;top:0;left:0;right:0;z-index:5;height:76px;display:flex;al
 .par figcaption{font:400 13px/1 'Plex Mono',monospace;color:var(--mute);text-align:center;padding:12px 0 4px}
 
 /* SERVIÇOS */
-#servicos .orn{width:min(52vw,560px);left:50%;top:30px;margin-left:calc(min(52vw,560px) / -2);opacity:.07;-webkit-mask-image:linear-gradient(180deg,#000 25%,transparent 80%);mask-image:linear-gradient(180deg,#000 25%,transparent 80%)}
 .blocos{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);background:var(--pl);margin-top:44px}
 .blocos>div{padding:30px 26px 32px;text-align:center}
 .blocos>div+div{border-left:1px solid var(--ink)}
@@ -123,8 +133,6 @@ nav{position:absolute;top:0;left:0;right:0;z-index:5;height:76px;display:flex;al
 
 /* SOBRE */
 #sobre{background:var(--bg2) var(--grao)}
-#sobre .orn{width:min(34vw,460px);bottom:30px;-webkit-mask-image:linear-gradient(0deg,transparent,#000 25%,#000 70%,transparent);mask-image:linear-gradient(0deg,transparent,#000 25%,#000 70%,transparent)}
-#sobre .orn.l{left:-110px}#sobre .orn.r{right:-110px}
 .sobre{display:grid;grid-template-columns:minmax(0,420px) minmax(0,520px);gap:56px;justify-content:center;align-items:center;margin-top:48px}
 .sobre figure{background:var(--pl);border:1px solid var(--ink);padding:9px}
 .sobre img{width:100%;aspect-ratio:4/5;object-fit:cover}
@@ -136,8 +144,6 @@ nav{position:absolute;top:0;left:0;right:0;z-index:5;height:76px;display:flex;al
 .factos b{font:500 15.5px/1.3 Jost,sans-serif;text-align:right}
 
 /* ESTÚDIO */
-#estudio .orn{width:min(24vw,330px);top:90px;-webkit-mask-image:linear-gradient(180deg,transparent,#000 20%,#000 70%,transparent);mask-image:linear-gradient(180deg,transparent,#000 20%,#000 70%,transparent)}
-#estudio .orn.l{left:-60px}#estudio .orn.r{right:-60px}
 .estudio{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);background:var(--pl);margin-top:44px}
 .estudio .info{padding:40px 38px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;border-right:1px solid var(--ink)}
 .estudio h3{font-size:30px;margin-bottom:6px}
@@ -147,8 +153,6 @@ nav{position:absolute;top:0;left:0;right:0;z-index:5;height:76px;display:flex;al
 .estudio iframe{background:var(--bg2);width:100%;height:100%;min-height:380px;border:0;display:block;filter:grayscale(.6) contrast(1.02)}
 
 /* MARCAR */
-#marcar .orn{width:min(36vw,520px);top:60px;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 85%);mask-image:linear-gradient(180deg,#000 30%,transparent 85%)}
-#marcar .orn.l{left:-140px}#marcar .orn.r{right:-140px}
 .passos{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);background:var(--pl);max-width:980px;margin:40px auto 0}
 .passos>div{padding:24px 22px;text-align:center}
 .passos>div+div{border-left:1px solid var(--ink)}
@@ -210,6 +214,13 @@ footer a:hover{border-color:var(--ink)}
  .h-mote{font-size:19px;padding:0 10px}
  .orn{opacity:.06}
  .grid{grid-template-columns:1fr 1fr;gap:8px}
+ .dest{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;gap:14px;margin:34px -20px 0;padding:0 20px 8px;scrollbar-width:none}
+ .dest::-webkit-scrollbar{display:none}
+ .dest figure{flex:0 0 78%;scroll-snap-align:center}
+ .dest figure{flex-basis:min(78%,340px)}
+ .todos{margin-top:54px}
+ .orn.md{width:120vw;opacity:.04}.orn.lt{width:96vw;opacity:.06}
+ .h-fundo{width:170vw;top:46%}
  .par{gap:10px}
  .par figure{padding:5px}
  .blocos>div,.passos>div{padding:20px 14px}
@@ -224,10 +235,7 @@ footer a:hover{border-color:var(--ink)}
  .estudio .bt .btn{flex:1;min-width:0}
  .form{padding:24px 18px}
  .duas{grid-template-columns:1fr}
- #trabalhos .orn,#sobre .orn,#estudio .orn,#marcar .orn{width:44vw}
- #trabalhos .orn.l,#sobre .orn.l,#estudio .orn.l,#marcar .orn.l{left:-16vw}
- #trabalhos .orn.r,#sobre .orn.r,#estudio .orn.r,#marcar .orn.r{right:-16vw}
-}
+   }
 @media (max-width:380px){
  .logo{font-size:19px}
  .links .btn{padding:0 12px}
@@ -247,7 +255,6 @@ footer a:hover{border-color:var(--ink)}
 
 <header class="hero" id="topo">
  <nav>
-  <a class="logo" href="#topo">Tiago Freitas</a>
   <div class="links">
    <a href="#trabalhos">Trabalhos</a>
    <a href="#sobre">Sobre</a>
@@ -256,6 +263,7 @@ footer a:hover{border-color:var(--ink)}
   </div>
  </nav>
  <h1 class="sr">Tiago Freitas, tatuador de geometria, mandala e fine line na Shark Tattoo Gallery, em Guimarães.</h1>
+ <img class="h-fundo" src="img/fundo/mandala-clara.webp" alt="" aria-hidden="true" draggable="false">
  <div class="palco">
   <div class="lado lado-e" aria-hidden="true"><p class="nome">Tiago</p><p class="lado-t"><b>Geometria e fine line</b>Mandala, dotwork e retrato em linha</p></div>
   <figure class="quadro">
@@ -277,11 +285,16 @@ footer a:hover{border-color:var(--ink)}
 </header>
 
 <section id="trabalhos">
- <img class="orn l" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
- <img class="orn r m" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn md" src="img/fundo/mandala-tinta.webp" alt="" aria-hidden="true" draggable="false">
  <div class="wrap">
   <h2 class="rv">Trabalhos</h2>
   <p class="lead rv">Mandalas em dotwork, geometria e fine line, desenhadas à medida de cada pessoa e de cada parte do corpo.</p>
+  <div class="dest" id="dest">
+   <figure class="rv" data-t="Mandala / geometria" data-n="a mandala dotwork na perna"><div class="d-fo"><img src="img/dest/0.webp" alt="Mandala em dotwork na perna, por Tiago Freitas" draggable="false"></div><figcaption><b>Mandala dotwork</b><span>Perna · 10 divisões</span></figcaption><button class="d-q" type="button">Quero uma assim</button></figure>
+   <figure class="rv" data-t="Fine line" data-n="a mariposa-lua em fine line"><div class="d-fo"><img src="img/dest/1.webp" alt="Mariposa-lua em fine line na coxa, por Tiago Freitas" draggable="false"></div><figcaption><b>Mariposa-lua</b><span>Fine line · coxa</span></figcaption><button class="d-q" type="button">Quero uma assim</button></figure>
+   <figure class="rv" data-t="Mandala / geometria" data-n="a mandala com flor da vida no ombro"><div class="d-fo"><img src="img/dest/2.webp" alt="Mandala com flor da vida no ombro, por Tiago Freitas" draggable="false"></div><figcaption><b>Mandala e flor da vida</b><span>Ombro · pontilhismo</span></figcaption><button class="d-q" type="button">Quero uma assim</button></figure>
+  </div>
+  <h3 class="todos rv">Todos os trabalhos</h3>
   <div class="filt rv" id="filt">
    <button class="on" data-f="*">Todos</button>
    <button data-f="geo">Geometria</button>
@@ -295,7 +308,7 @@ footer a:hover{border-color:var(--ink)}
 </section>
 
 <section id="retrato">
- <img class="orn" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn lt" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
  <div class="wrap">
   <h2 class="rv">Da fotografia à pele</h2>
   <p class="lead rv">Retratos em linha fina, desenhados a partir da fotografia que trazes. Só o traço essencial, sem perder quem lá está.</p>
@@ -312,7 +325,7 @@ footer a:hover{border-color:var(--ink)}
 </section>
 
 <section id="servicos">
- <img class="orn" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn md" src="img/fundo/mandala-tinta.webp" alt="" aria-hidden="true" draggable="false">
  <div class="wrap">
   <h2 class="rv">Para além da tatuagem</h2>
   <p class="lead rv">Na Shark, o Tiago também faz os piercings, a remoção a laser e dá a formação de novos tatuadores.</p>
@@ -326,8 +339,7 @@ footer a:hover{border-color:var(--ink)}
 </section>
 
 <section id="sobre">
- <img class="orn l" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
- <img class="orn r m" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn lt" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
  <div class="wrap">
   <h2 class="rv">Sobre o Tiago</h2>
   <div class="sobre">
@@ -347,8 +359,7 @@ footer a:hover{border-color:var(--ink)}
 </section>
 
 <section id="estudio">
- <img class="orn l" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
- <img class="orn r m" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn md" src="img/fundo/mandala-tinta.webp" alt="" aria-hidden="true" draggable="false">
  <div class="wrap">
   <h2 class="rv">O estúdio</h2>
   <div class="estudio rv">
@@ -368,8 +379,7 @@ footer a:hover{border-color:var(--ink)}
 </section>
 
 <section id="marcar">
- <img class="orn l" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
- <img class="orn r m" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn lt" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
  <div class="wrap">
   <h2 class="rv">Pedir orçamento</h2>
   <p class="lead rv">Preenche e o pedido chega pronto ao WhatsApp do estúdio, com a tua ideia já explicada.</p>
@@ -442,12 +452,18 @@ const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
  }).catch(()=>fo.classList.add('estatica'));
 })();
 
+// DESTAQUES: "Quero uma assim" preenche o pedido
+document.querySelectorAll('#dest .d-q').forEach(b=>b.addEventListener('click',()=>{const f=b.closest('figure');
+ const ch=document.querySelector(`#form input[name=tema][value="${f.dataset.t}"]`);if(ch)ch.checked=true;
+ const id=document.getElementById('ideia');id.value='Vi no site '+f.dataset.n+' e quero algo nesse estilo. ';
+ document.getElementById('marcar').scrollIntoView();setTimeout(()=>id.focus({preventScroll:true}),700)}));
+
 // TRABALHOS
 const T='geo fl rt geo fl geo rt geo fl geo rt fl geo fl geo fl rt geo fl lt geo fl rt geo fl geo fl geo rt lt geo fl geo rt fl geo fl geo fl geo lt fl geo rt fl geo fl geo rt fl geo lt geo fl fl fl fl fl lt'.split(' ');
 const NOMES={geo:'Geometria e mandala',fl:'Fine line',rt:'Retrato em linha',lt:'Lettering'};
 const g=document.getElementById('grid');let f='*',lim=24,vis=[];
 const nn=i=>String(i).padStart(2,'0');
-function draw(){vis=T.map((t,i)=>({t,i})).filter(o=>f=='*'||o.t==f);
+function draw(){vis=T.map((t,i)=>({t,i})).filter(o=>f=='*'?![0,1,3].includes(o.i):o.t==f);   /* no Todos, as 3 em destaque não se repetem */
  g.innerHTML=vis.slice(0,lim).map((o,k)=>`<a href="img/g/${nn(o.i)}.webp" data-k="${k}"><img src="img/g/s/${nn(o.i)}.webp" alt="${NOMES[o.t]} por Tiago Freitas" draggable="false"></a>`).join('');
  document.getElementById('mais').parentNode.hidden=vis.length<=lim}
 draw();
