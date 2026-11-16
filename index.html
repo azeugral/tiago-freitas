@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tiago Freitas · Tatuagem geométrica e fine line em Guimarães</title>
+<meta name="description" content="Tiago Freitas, tatuador desde 2017 na Shark Tattoo Gallery, em Guimarães. Mandalas e geometria em dotwork, fine line e retrato em linha fina. Também piercing, remoção a laser e formação.">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:title" content="Tiago Freitas · Tatuagem em Guimarães">
+<meta property="og:description" content="Geometria, mandala e fine line na Shark Tattoo Gallery.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#ECE8E0">
+<link rel="icon" href="favicon.png">
+<link rel="preload" href="fonts/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/hero/0.webp" as="image">
+<style>
+@font-face{font-family:Jost;src:url(fonts/jost-latin-wght-normal.woff2) format('woff2');font-weight:300 700;font-display:swap}
+@font-face{font-family:Hanken;src:url(fonts/hanken-grotesk-latin-wght-normal.woff2) format('woff2');font-weight:300 700;font-display:swap}
+@font-face{font-family:Plex Mono;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+:root{
+ --bg:#ECE8E0;--bg2:#E4DFD5;--pl:#F4F1EB;--ink:#18181A;--mute:#5C5952;--line:rgba(24,24,26,.16);
+ --or:#C4561C;--or2:#A9450F;--ez:cubic-bezier(.16,.84,.32,1);
+ --grao:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .09 0 0 0 0 .08 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg) var(--grao);color:var(--ink);font:400 17px/1.6 Hanken,system-ui,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:Jost,sans-serif;font-weight:500;line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(34px,5vw,60px);text-align:center}
+p{text-wrap:pretty}
+.wrap{width:min(1180px,100% - 40px);margin:0 auto;position:relative;z-index:1}
+.lead{max-width:600px;margin:14px auto 0;text-align:center;color:var(--mute);font-size:18px;text-wrap:balance}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 28px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:500 16px/1 Jost,sans-serif;letter-spacing:.02em;text-decoration:none;cursor:pointer;transition:background .3s var(--ez),color .3s var(--ez),border-color .3s var(--ez),transform .3s var(--ez)}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn.p{background:var(--or2);border-color:var(--or2);color:#fff}
+.btn.p:hover{background:var(--ink);border-color:var(--ink)}
+section{position:relative;overflow:hidden;padding:110px 0}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ez),transform .7s var(--ez)}
+.rv.in{opacity:1;transform:none}
+
+/* adornos: traço do próprio Tiago (lótus e mariposa-lua), estáticos e apagados */
+.orn{position:absolute;z-index:0;pointer-events:none;user-select:none;-webkit-user-drag:none;opacity:.09}
+.orn.m{transform:scaleX(-1)}
+
+/* NAV */
+nav{position:absolute;top:0;left:0;right:0;z-index:5;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 max(20px,calc((100% - 1180px)/2))}
+.logo{font:500 21px/1 Jost,sans-serif;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.links{display:flex;gap:30px;align-items:center}
+.links a{font:500 15px/1 Jost,sans-serif;text-decoration:none;letter-spacing:.02em;position:relative}
+.links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--or);transform:scaleX(0);transition:transform .3s var(--ez)}
+.links a:not(.btn):hover::after{transform:none}
+.links .btn{height:40px;padding:0 18px;font-size:14px}
+
+/* HERO: a prancha de construção */
+.hero{position:relative;min-height:100svh;padding:84px 0 34px;display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:14px;border:1px solid var(--line);outline:1px solid var(--line);outline-offset:-7px;pointer-events:none;z-index:0}
+.hero .orn{width:min(40vw,640px);top:50%;margin-top:calc(min(40vw,640px) * -.55);opacity:.085;-webkit-mask-image:linear-gradient(90deg,#000 30%,transparent 92%);mask-image:linear-gradient(90deg,#000 30%,transparent 92%)}
+.hero .orn.l{left:max(-9vw,-150px)}
+.hero .orn.r{right:max(-9vw,-150px)}
+.palco{position:relative;z-index:1;flex:1;display:flex;align-items:center;justify-content:center;width:100%;min-height:0;padding:28px 0 20px}
+.quadro{--h:min(calc(100svh - 342px),780px);height:max(var(--h),400px);aspect-ratio:4/5;position:relative;background:var(--pl);border:1px solid var(--ink);padding:9px;box-shadow:0 1px 0 rgba(24,24,26,.06),0 24px 50px -30px rgba(24,24,26,.45)}
+.q-in{position:relative;width:100%;height:100%;overflow:hidden;background:var(--pl)}
+.q-in img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.q-in svg{position:absolute;inset:0;z-index:3;width:100%;height:100%;overflow:visible}
+.const{transition:opacity .7s var(--ez)}
+.const.off{opacity:0}
+.const path,.const line{fill:none;stroke:var(--or);stroke-width:1.3;vector-effect:non-scaling-stroke}
+.const .raio{stroke-width:1;stroke-dasharray:4 4}
+.braco line{stroke:var(--ink);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.braco circle{fill:var(--pl);stroke:var(--ink);stroke-width:1.4;vector-effect:non-scaling-stroke}
+.braco .ponta{fill:var(--or);stroke:none}
+.braco{transition:opacity .4s var(--ez)}
+.braco.off{opacity:0}
+.grau{position:absolute;font:400 11px/1 'Plex Mono',monospace;color:var(--or2);letter-spacing:.04em;white-space:nowrap}
+.grau.t{left:50%;top:-24px;transform:translateX(-50%)}
+.grau.b{left:50%;bottom:-24px;transform:translateX(-50%)}
+.grau.l{right:calc(100% + 12px);top:50%;transform:translateY(-50%)}
+.grau.r{left:calc(100% + 12px);top:50%;transform:translateY(-50%)}
+.legenda{position:absolute;left:50%;top:calc(100% + 40px);transform:translateX(-50%);font:400 13px/1.2 'Plex Mono',monospace;color:var(--mute);white-space:nowrap;transition:opacity .35s var(--ez)}
+.legenda.tr{opacity:0}
+/* carimbo: o bloco de título da prancha */
+.carimbo{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto 1fr;border:1px solid var(--ink);background:var(--pl);margin-top:46px;width:min(1080px,100% - 40px)}
+.carimbo .nome{padding:14px 34px 15px;text-align:center;border-left:1px solid var(--ink);border-right:1px solid var(--ink)}
+.carimbo h1{font-size:clamp(44px,5.6vw,86px);white-space:nowrap}
+.carimbo .nome p i{font-style:normal}
+.carimbo .nome p{margin-top:6px;font-size:14.5px;color:var(--mute);letter-spacing:.01em}
+.cel{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:16px 18px;text-align:center;text-decoration:none;transition:background .3s var(--ez),color .3s var(--ez)}
+.cel b{font:500 19px/1.1 Jost,sans-serif;letter-spacing:.01em}
+.cel span{font-size:13.5px;line-height:1.3;opacity:.75}
+.cel.p{background:var(--or2);color:#fff}
+.cel:hover{background:var(--ink);color:var(--bg)}
+.cel:active b{transform:translateY(1px)}
+.hero .ent{opacity:0;transform:translateY(12px);animation:ent .8s var(--ez) forwards}
+.hero .ent.d1{animation-delay:.1s}.hero .ent.d2{animation-delay:.2s}
+@keyframes ent{to{opacity:1;transform:none}}
+
+/* TRABALHOS */
+#trabalhos .orn{width:min(30vw,420px);bottom:40px;-webkit-mask-image:linear-gradient(0deg,transparent,#000 20%,#000 70%,transparent);mask-image:linear-gradient(0deg,transparent,#000 20%,#000 70%,transparent)}
+#trabalhos .orn.l{left:-80px}#trabalhos .orn.r{right:-80px}
+.filt{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:34px 0 30px}
+.filt button{height:42px;padding:0 18px;border:1px solid var(--line);background:transparent;font:500 15px/1 Jost,sans-serif;color:var(--ink);cursor:pointer;transition:background .3s var(--ez),border-color .3s var(--ez),color .3s var(--ez)}
+.filt button:hover{border-color:var(--ink)}
+.filt button.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.grid a{display:block;aspect-ratio:4/5;overflow:hidden;background:var(--bg2)}
+.grid img{width:100%;height:100%;object-fit:cover;-webkit-user-drag:none;transition:transform .5s var(--ez)}
+.grid a:hover img{transform:scale(1.03)}
+.mais{text-align:center;margin-top:34px}
+
+/* DA FOTO À PELE */
+#retrato{background:var(--bg2) var(--grao)}
+#retrato .orn{width:min(70vw,760px);left:50%;top:40px;margin-left:calc(min(70vw,760px) / -2);opacity:.075;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 85%);mask-image:linear-gradient(180deg,#000 30%,transparent 85%)}
+.pares-tabs{display:flex;justify-content:center;gap:8px;margin:32px 0 28px;flex-wrap:wrap}
+.pares-tabs button{height:42px;padding:0 18px;border:1px solid var(--line);background:transparent;font:500 15px/1 Jost,sans-serif;color:var(--ink);cursor:pointer;transition:background .3s var(--ez),color .3s var(--ez),border-color .3s var(--ez)}
+.pares-tabs button[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:860px;margin:0 auto;transition:opacity .3s var(--ez)}
+.par.tr{opacity:0}
+.par figure{background:var(--pl);border:1px solid var(--ink);padding:8px}
+.par img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.par figcaption{font:400 13px/1 'Plex Mono',monospace;color:var(--mute);text-align:center;padding:12px 0 4px}
+
+/* SERVIÇOS */
+#servicos .orn{width:min(52vw,560px);left:50%;top:30px;margin-left:calc(min(52vw,560px) / -2);opacity:.07;-webkit-mask-image:linear-gradient(180deg,#000 25%,transparent 80%);mask-image:linear-gradient(180deg,#000 25%,transparent 80%)}
+.blocos{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);background:var(--pl);margin-top:44px}
+.blocos>div{padding:30px 26px 32px;text-align:center}
+.blocos>div+div{border-left:1px solid var(--ink)}
+.blocos h3{font-size:24px;margin-bottom:10px}
+.blocos p{font-size:15.5px;color:var(--mute);line-height:1.55}
+
+/* SOBRE */
+#sobre{background:var(--bg2) var(--grao)}
+#sobre .orn{width:min(34vw,460px);bottom:30px;-webkit-mask-image:linear-gradient(0deg,transparent,#000 25%,#000 70%,transparent);mask-image:linear-gradient(0deg,transparent,#000 25%,#000 70%,transparent)}
+#sobre .orn.l{left:-110px}#sobre .orn.r{right:-110px}
+.sobre{display:grid;grid-template-columns:minmax(0,420px) minmax(0,520px);gap:56px;justify-content:center;align-items:center;margin-top:48px}
+.sobre figure{background:var(--pl);border:1px solid var(--ink);padding:9px}
+.sobre img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.sobre p+p{margin-top:16px}
+.sobre .tx{font-size:17.5px}
+.factos{margin-top:26px;border-top:1px solid var(--line)}
+.factos div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.factos span{color:var(--mute)}
+.factos b{font:500 15.5px/1.3 Jost,sans-serif;text-align:right}
+
+/* ESTÚDIO */
+#estudio .orn{width:min(24vw,330px);top:90px;-webkit-mask-image:linear-gradient(180deg,transparent,#000 20%,#000 70%,transparent);mask-image:linear-gradient(180deg,transparent,#000 20%,#000 70%,transparent)}
+#estudio .orn.l{left:-60px}#estudio .orn.r{right:-60px}
+.estudio{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);background:var(--pl);margin-top:44px}
+.estudio .info{padding:40px 38px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;border-right:1px solid var(--ink)}
+.estudio h3{font-size:30px;margin-bottom:6px}
+.estudio .nota{margin-top:6px;font:400 13px/1.3 'Plex Mono',monospace;color:var(--or2)}
+.estudio .bt{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;justify-content:center}
+.estudio .bt .btn{min-width:170px}
+.estudio iframe{background:var(--bg2);width:100%;height:100%;min-height:380px;border:0;display:block;filter:grayscale(.6) contrast(1.02)}
+
+/* MARCAR */
+#marcar .orn{width:min(36vw,520px);top:60px;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 85%);mask-image:linear-gradient(180deg,#000 30%,transparent 85%)}
+#marcar .orn.l{left:-140px}#marcar .orn.r{right:-140px}
+.passos{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink);background:var(--pl);max-width:980px;margin:40px auto 0}
+.passos>div{padding:24px 22px;text-align:center}
+.passos>div+div{border-left:1px solid var(--ink)}
+.passos b{display:block;font:500 20px/1.2 Jost,sans-serif;margin-bottom:6px}
+.passos p{font-size:15px;color:var(--mute);line-height:1.5}
+.form{max-width:680px;margin:44px auto 0;background:var(--pl);border:1px solid var(--ink);padding:34px 34px 30px;display:flex;flex-direction:column;gap:22px}
+.campo{display:flex;flex-direction:column;gap:8px;border:0;min-width:0}
+.campo>span,.campo legend{font:500 15px/1.2 Jost,sans-serif;letter-spacing:.01em;padding:0}
+.campo legend{margin-bottom:8px}
+input,select,textarea{font:400 16px/1.4 Hanken,sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:0;padding:12px 14px;width:100%;transition:border-color .3s var(--ez),background .3s var(--ez);-webkit-appearance:none;appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 15px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:40px}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--ink);background:#fff}
+textarea{resize:vertical;min-height:110px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative;cursor:pointer}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips span{display:inline-flex;align-items:center;height:42px;padding:0 16px;border:1px solid var(--line);font:500 15px/1 Jost,sans-serif;transition:background .3s var(--ez),color .3s var(--ez),border-color .3s var(--ez)}
+.chips label:hover span{border-color:var(--ink)}
+.chips input:checked+span{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips input:focus-visible+span{outline:2px solid var(--or);outline-offset:2px}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.erro{color:#A3260F;font-size:15px;margin-top:-8px}
+.form .btn{width:100%;height:56px;font-size:17px}
+.form small{color:var(--mute);font-size:14px;text-align:center;line-height:1.45}
+
+footer{border-top:1px solid var(--line);padding:46px 20px 52px;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center;color:var(--mute);font-size:15px}
+footer .logo{color:var(--ink);font-size:24px;margin-bottom:6px}
+footer a{text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .3s var(--ez)}
+footer a:hover{border-color:var(--ink)}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(20,19,18,.94);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;padding:20px}
+.lb img{max-width:min(92vw,900px);max-height:calc(100svh - 140px);object-fit:contain;-webkit-user-drag:none}
+.lb>button:not(.btn){position:absolute;background:none;border:0;color:#F4F1EB;font:300 44px/1 Jost,sans-serif;cursor:pointer;width:60px;height:60px;transition:opacity .3s var(--ez)}
+.lb>button:not(.btn):hover{opacity:.6}
+.lb .x{top:10px;right:10px}.lb .pv{left:10px;top:50%;margin-top:-30px}.lb .nx{right:10px;top:50%;margin-top:-30px}
+.lb .quero{border-color:#F4F1EB;color:#F4F1EB}
+.lb .quero:hover{background:#F4F1EB;color:var(--ink)}
+
+/* RESPONSIVO */
+@media (max-width:1024px){
+ .grid{grid-template-columns:repeat(3,1fr)}
+ .blocos,.passos{grid-template-columns:1fr 1fr}
+ .blocos>div+div,.passos>div+div{border-left:0}
+ .blocos>div:nth-child(even),.passos>div:nth-child(even){border-left:1px solid var(--ink)}
+ .blocos>div:nth-child(n+3),.passos>div:nth-child(n+3){border-top:1px solid var(--ink)}
+}
+@media (max-width:820px){
+ body{font-size:16px}
+ section{padding:80px 0}
+ .links a:not(.btn){display:none}
+ .hero{padding-top:72px}
+ .quadro{height:auto;width:min(80vw,420px)}
+ .palco{padding:30px 0 18px}
+ .grau.l,.grau.r{display:none}
+ .carimbo .nome p span{display:block}.carimbo .nome p i{display:none}
+ .carimbo{grid-template-columns:1fr 1fr;margin-top:46px}
+ .carimbo .nome{grid-column:1/-1;grid-row:1;border:0;border-bottom:1px solid var(--ink);padding:16px 12px 16px}
+ .carimbo h1{font-size:clamp(38px,11.5vw,64px)}
+ .carimbo .nome p{font-size:13px}
+ .cel{padding:14px 10px}
+ .cel b{font-size:17px}
+ .cel span{font-size:12.5px}
+ .c3{border-left:1px solid var(--ink)}
+ .hero .orn{width:62vw;margin-top:-34vw;opacity:.06}
+ .hero .orn.l{left:-30vw}.hero .orn.r{right:-30vw}
+ .orn{opacity:.06}
+ .grid{grid-template-columns:1fr 1fr;gap:8px}
+ .par{gap:10px}
+ .par figure{padding:5px}
+ .blocos>div,.passos>div{padding:20px 14px}
+ .blocos h3{font-size:20px}
+ .blocos p,.passos p{font-size:14px}
+ .passos b{font-size:18px}
+ .sobre{grid-template-columns:1fr;gap:30px;max-width:460px;margin-left:auto;margin-right:auto}
+ .estudio{grid-template-columns:1fr}
+ .estudio .info{border-right:0;border-bottom:1px solid var(--ink);padding:32px 20px}
+ .estudio iframe{min-height:300px}
+ .estudio .bt{width:100%;flex-wrap:nowrap}
+ .estudio .bt .btn{flex:1;min-width:0}
+ .form{padding:24px 18px}
+ .duas{grid-template-columns:1fr}
+ #trabalhos .orn,#sobre .orn,#estudio .orn,#marcar .orn{width:44vw}
+ #trabalhos .orn.l,#sobre .orn.l,#estudio .orn.l,#marcar .orn.l{left:-16vw}
+ #trabalhos .orn.r,#sobre .orn.r,#estudio .orn.r,#marcar .orn.r{right:-16vw}
+}
+@media (max-width:380px){
+ .logo{font-size:19px}
+ .links .btn{padding:0 12px}
+ .cel span{font-size:12px}
+ .cel b{font-size:16px}
+ .chips span{padding:0 12px;font-size:14px}
+ .filt button,.pares-tabs button{padding:0 12px;font-size:14px}
+}
+@media (orientation:landscape) and (max-height:560px){
+ .quadro{height:min(calc(100svh - 120px),420px);width:auto}
+ .carimbo{margin-top:40px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv,.hero .ent{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="hero" id="topo">
+ <nav>
+  <a class="logo" href="#topo">Tiago Freitas</a>
+  <div class="links">
+   <a href="#trabalhos">Trabalhos</a>
+   <a href="#sobre">Sobre</a>
+   <a href="#estudio">Estúdio</a>
+   <a class="btn" href="#marcar">Marcar</a>
+  </div>
+ </nav>
+ <img class="orn l" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn r m" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
+
+ <div class="palco">
+  <div class="quadro ent" id="quadro">
+   <div class="q-in">
+    <img id="ha" src="img/hero/0.webp" alt="Mandala em dotwork tatuada por Tiago Freitas">
+    <img id="hb" alt="">
+    <svg viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+     <g class="const" id="const"></g>
+     <g class="braco off" id="braco"><line id="bl" x1="200" y1="250" x2="200" y2="20"/><circle class="ponta" id="bp" cx="200" cy="20" r="3.2"/><circle cx="200" cy="250" r="4"/></g>
+    </svg>
+   </div>
+   <span class="grau t" aria-hidden="true">0°</span>
+   <span class="grau r" aria-hidden="true">90°</span>
+   <span class="grau b" aria-hidden="true">180°</span>
+   <span class="grau l" aria-hidden="true">270°</span>
+   <span class="legenda" id="legenda">Mandala dotwork · gémeo</span>
+  </div>
+ </div>
+
+ <div class="carimbo ent d1">
+  <a class="cel p c1" href="#marcar"><b>Pedir orçamento</b><span>Pelo WhatsApp do estúdio</span></a>
+  <div class="nome"><h1>Tiago Freitas</h1><p><span>Geometria e fine line</span><i> · </i><span>Shark Tattoo Gallery, Guimarães</span></p></div>
+  <a class="cel c3" href="#trabalhos"><b>Ver trabalhos</b><span>Mandala, fine line e retrato</span></a>
+ </div>
+</header>
+
+<section id="trabalhos">
+ <img class="orn l" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn r m" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
+ <div class="wrap">
+  <h2 class="rv">Trabalhos</h2>
+  <p class="lead rv">Mandalas em dotwork, geometria e fine line, desenhadas à medida de cada pessoa e de cada parte do corpo.</p>
+  <div class="filt rv" id="filt">
+   <button class="on" data-f="*">Todos</button>
+   <button data-f="geo">Geometria</button>
+   <button data-f="fl">Fine line</button>
+   <button data-f="rt">Retrato em linha</button>
+   <button data-f="lt">Lettering</button>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="mais"><button class="btn" id="mais">Ver mais trabalhos</button></div>
+ </div>
+</section>
+
+<section id="retrato">
+ <img class="orn" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
+ <div class="wrap">
+  <h2 class="rv">Da fotografia à pele</h2>
+  <p class="lead rv">Retratos em linha fina, desenhados a partir da fotografia que trazes. Só o traço essencial, sem perder quem lá está.</p>
+  <div class="pares-tabs rv" role="tablist">
+   <button role="tab" aria-selected="true" data-p="0">Mãe e bebé</button>
+   <button role="tab" aria-selected="false" data-p="1">Avó</button>
+   <button role="tab" aria-selected="false" data-p="2">Mãe e filha</button>
+  </div>
+  <div class="par rv" id="par">
+   <figure><img id="pa" src="img/p/0a.webp" alt="Fotografia de referência"><figcaption>Fotografia</figcaption></figure>
+   <figure><img id="pb" src="img/p/0b.webp" alt="Retrato em linha fina tatuado a partir da fotografia"><figcaption>Na pele</figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<section id="servicos">
+ <img class="orn" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
+ <div class="wrap">
+  <h2 class="rv">Para além da tatuagem</h2>
+  <p class="lead rv">Na Shark, o Tiago também faz os piercings, a remoção a laser e dá a formação de novos tatuadores.</p>
+  <div class="blocos rv">
+   <div><h3>Tatuagem</h3><p>Projetos personalizados em geometria, mandala, fine line, retrato em linha e lettering.</p></div>
+   <div><h3>Piercing</h3><p>Todos os piercings do estúdio são feitos por ele, com técnica, segurança e acompanhamento.</p></div>
+   <div><h3>Remoção a laser</h3><p>Certificado em laser: correção, clareamento ou remoção total, em sessões.</p></div>
+   <div><h3>Formação</h3><p>Formador certificado: iniciação à tatuagem, higiene e segurança, desenho técnico.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="sobre">
+ <img class="orn l" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn r m" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
+ <div class="wrap">
+  <h2 class="rv">Sobre o Tiago</h2>
+  <div class="sobre">
+   <figure class="rv"><img src="img/p/tiago.webp" alt="Tiago Freitas, tatuador"></figure>
+   <div class="tx rv">
+    <p>O Tiago tatua desde 2017 e é o membro mais antigo da Shark Tattoo Gallery, em Guimarães.</p>
+    <p>A especialidade dele é a geometria e o fine line: linhas limpas, precisão e uma estética equilibrada, que junta detalhe e significado. Cada projeto é pensado em conjunto contigo, para que a tatuagem seja uma extensão da tua história.</p>
+    <p>Para ele, a tatuagem é expressão, memória e identidade, e é um privilégio transformar ideias em arte permanente.</p>
+    <div class="factos">
+     <div><span>Especialidade</span><b>Geometria e fine line</b></div>
+     <div><span>Estúdio</span><b>Shark Tattoo Gallery</b></div>
+     <div><span>Também</span><b>Piercing, laser e formação</b></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="estudio">
+ <img class="orn l" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn r m" src="img/orn/mariposa.webp" alt="" aria-hidden="true" draggable="false">
+ <div class="wrap">
+  <h2 class="rv">O estúdio</h2>
+  <div class="estudio rv">
+   <div class="info">
+    <h3>Shark Tattoo Gallery</h3>
+    <p>R. Prof. Abel Salazar, 412</p>
+    <p>4835-010 Guimarães</p>
+    <p class="nota">4,9 no Google · 115 avaliações</p>
+    <div class="bt">
+     <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Shark+Tattoo+Gallery+Guimar%C3%A3es" id="maps" target="_blank" rel="noopener">Abrir no mapa</a>
+     <a class="btn" href="tel:+351919603570">Ligar</a>
+    </div>
+   </div>
+   <iframe title="Mapa da Shark Tattoo Gallery" src="https://www.google.com/maps?q=Shark+Tattoo+Gallery,+R.+Prof.+Abel+Salazar+412,+Guimar%C3%A3es&output=embed"></iframe>
+  </div>
+ </div>
+</section>
+
+<section id="marcar">
+ <img class="orn l" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
+ <img class="orn r m" src="img/orn/lotus.webp" alt="" aria-hidden="true" draggable="false">
+ <div class="wrap">
+  <h2 class="rv">Pedir orçamento</h2>
+  <p class="lead rv">Preenche e o pedido chega pronto ao WhatsApp do estúdio, com a tua ideia já explicada.</p>
+  <div class="passos rv">
+   <div><b>Ideia</b><p>Conta o que queres, o local do corpo e o tamanho.</p></div>
+   <div><b>Referências</b><p>Envia imagens ou a fotografia para o retrato.</p></div>
+   <div><b>Orçamento</b><p>Recebes o valor e o tempo de sessão.</p></div>
+   <div><b>Marcação</b><p>Escolhes a data e o desenho fica pronto.</p></div>
+  </div>
+  <form class="form rv" id="form" novalidate>
+   <label class="campo"><span>O teu nome</span><input name="nome" autocomplete="given-name" required></label>
+   <fieldset class="campo"><legend>O que queres tatuar</legend>
+    <div class="chips">
+     <label><input type="radio" name="tema" value="Mandala / geometria" checked><span>Geometria</span></label>
+     <label><input type="radio" name="tema" value="Fine line"><span>Fine line</span></label>
+     <label><input type="radio" name="tema" value="Retrato em linha"><span>Retrato em linha</span></label>
+     <label><input type="radio" name="tema" value="Lettering"><span>Lettering</span></label>
+     <label><input type="radio" name="tema" value="Ainda não sei"><span>Ainda não sei</span></label>
+    </div>
+   </fieldset>
+   <fieldset class="campo"><legend>É a primeira tatuagem?</legend>
+    <div class="chips">
+     <label><input type="radio" name="prim" value="Sim" checked><span>Sim</span></label>
+     <label><input type="radio" name="prim" value="Não"><span>Não</span></label>
+    </div>
+   </fieldset>
+   <div class="duas">
+    <label class="campo"><span>Local do corpo</span><input name="local" placeholder="Ex.: antebraço direito"></label>
+    <label class="campo"><span>Tamanho</span>
+     <select name="tamanho"><option>Até 10 cm</option><option selected>Médio (10 a 20 cm)</option><option>Grande (mais de 20 cm)</option><option>Fechamento (braço ou perna)</option></select></label>
+   </div>
+   <label class="campo"><span>Conta a tua ideia</span><textarea name="ideia" id="ideia" rows="4" placeholder="Significado, referências, estilo que imaginas..."></textarea></label>
+   <label class="campo"><span>Disponibilidade</span>
+    <select name="quando"><option>Indiferente</option><option>Dias de semana</option><option>Fim de semana</option></select></label>
+   <p class="erro" id="erro" hidden>Escreve o teu nome para continuar.</p>
+   <button class="btn p" type="submit">Enviar pelo WhatsApp</button>
+   <small id="cop">Abre o WhatsApp com a mensagem pronta. É só enviar e juntar as imagens de referência.</small>
+  </form>
+ </div>
+</section>
+
+<footer>
+ <span class="logo">Tiago Freitas</span>
+ <p>Shark Tattoo Gallery · R. Prof. Abel Salazar, 412, Guimarães</p>
+ <p><a href="https://www.instagram.com/tiagofreitas_tattoo/" target="_blank" rel="noopener">@tiagofreitas_tattoo</a></p>
+ <p>Site por <a href="https://lrgz.com.br">L R G Z</a></p>
+</footer>
+
+<div class="lb" id="lb" hidden><button class="x" aria-label="Fechar">×</button><button class="pv" aria-label="Anterior">‹</button><img id="lbi" alt="Tatuagem de Tiago Freitas"><button class="nx" aria-label="Próxima">›</button></div>
+
+<script>
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+// HERO: o compasso dá uma volta a partir do eixo de cada mandala; atrás dele, o traçado e a peça
+(function(){
+ // anéis medidos em cada peça: [rx, ry] em fração do recorte 4:5 (viewBox 400x500), centro no eixo
+ const P=[
+  {t:'Mandala dotwork · gémeo',r:[[.39,.425],[.25,.27],[.075,.08]],d:12},
+  {t:'Mandala e flor da vida · ombro',r:[[.365,.31],[.2,.158],[.095,.076]],d:12},
+  {t:'Mandala dotwork · barriga da perna',r:[[.33,.425],[.2,.21],[.13,.134]],d:16},
+  {t:'Mandala e girassol · anca',r:[[.47,.37],[.29,.23],[.075,.06]],d:8}
+ ];
+ const src=i=>`img/hero/${i}.webp`;
+ P.forEach((_,i)=>{const im=new Image();im.src=src(i)});
+ const NS='http://www.w3.org/2000/svg',C=document.getElementById('const'),braco=document.getElementById('braco'),bl=document.getElementById('bl'),bp=document.getElementById('bp');
+ const imgs=[document.getElementById('ha'),document.getElementById('hb')],leg=document.getElementById('legenda');
+ const cx=200,cy=250,W=400,H=500;
+ const rad=(a,b,t)=>a*b/Math.sqrt((b*Math.sin(t))**2+(a*Math.cos(t))**2);
+ const pt=(a,b,t,k=1)=>{const r=rad(a,b,t)*k;return[cx+r*Math.sin(t),cy-r*Math.cos(t)]};
+ const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+ let cur=0,topo=0,anel=[],raios=[],peca=P[0];
+ function monta(p){
+  C.innerHTML='';anel=[];raios=[];
+  p.r.forEach(([fx,fy])=>{const e=document.createElementNS(NS,'path');C.appendChild(e);anel.push({e,a:fx*W,b:fy*H})});
+  const [oa,ob]=[p.r[0][0]*W,p.r[0][1]*H];
+  for(let k=0;k<p.d;k++){const t=k/p.d*2*Math.PI,[x2,y2]=pt(oa,ob,t,1.06),l=document.createElementNS(NS,'line');
+   l.setAttribute('class','raio');l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',x2);l.setAttribute('y2',y2);l.style.opacity=0;C.appendChild(l);raios.push({l,t})}
+ }
+ function frame(ang){ // ang em radianos, 0 = topo, sentido horário
+  const deg=ang*180/Math.PI;
+  anel.forEach(o=>{let d='';const n=Math.max(2,Math.ceil(deg/3));for(let i=0;i<=n;i++){const t=ang*i/n,[x,y]=pt(o.a,o.b,t);d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}o.e.setAttribute('d',d)});
+  raios.forEach(o=>{o.l.style.opacity=Math.max(0,Math.min(1,(ang-o.t)/.35))});
+  const o=anel[0],[x,y]=pt(o.a,o.b,ang,1.14),[px,py]=pt(o.a,o.b,ang);
+  bl.setAttribute('x2',x);bl.setAttribute('y2',y);bp.setAttribute('cx',px);bp.setAttribute('cy',py);
+  const m=`conic-gradient(#000 ${Math.max(0,deg-.6)}deg, transparent ${deg}deg)`;
+  imgs[topo].style.webkitMaskImage=m;imgs[topo].style.maskImage=m;
+ }
+ function volta(i){
+  peca=P[i];const nx=1-topo;
+  imgs[nx].src=src(i);imgs[nx].alt='Mandala tatuada por Tiago Freitas: '+peca.t;
+  imgs[topo].style.zIndex=1;imgs[nx].style.zIndex=2;topo=nx;
+  monta(peca);C.classList.remove('off');braco.classList.remove('off');
+  leg.classList.add('tr');setTimeout(()=>{leg.textContent=peca.t;leg.classList.remove('tr')},350);
+  frame(0);const t0=performance.now(),dur=1500;
+  const go=n=>{const k=Math.min(1,(n-t0)/dur);frame(ease(k)*2*Math.PI);
+   if(k<1)requestAnimationFrame(go);else{imgs[topo].style.webkitMaskImage=imgs[topo].style.maskImage='none';braco.classList.add('off');setTimeout(()=>C.classList.add('off'),250)}};
+  requestAnimationFrame(go);
+ }
+ if(RM)return;
+ // 1ª volta: a peça 0 é revelada sobre o papel do quadro
+ imgs[0].style.opacity=0;imgs[0].removeAttribute('src');imgs[1].removeAttribute('src');
+ let vis=true,timer=null;
+ const ciclo=()=>{cur=(cur+1)%P.length;volta(cur)};
+ const liga=()=>{if(!timer&&vis&&!document.hidden)timer=setInterval(ciclo,5200)};
+ const desliga=()=>{clearInterval(timer);timer=null};
+ const im0=new Image();im0.src=src(0);
+ const start=()=>{imgs[0].style.opacity=1;topo=1;volta(0);liga()};
+ (im0.decode?im0.decode():Promise.resolve()).then(()=>setTimeout(start,250)).catch(()=>setTimeout(start,250));
+ new IntersectionObserver(e=>{vis=e[0].isIntersecting;vis?liga():desliga()}).observe(document.getElementById('quadro'));
+ document.addEventListener('visibilitychange',()=>document.hidden?desliga():liga());
+})();
+
+// TRABALHOS
+const T='geo fl rt geo fl geo rt geo fl geo rt fl geo fl geo fl rt geo fl lt geo fl rt geo fl geo fl geo rt lt geo fl geo rt fl geo fl geo fl geo lt fl geo rt fl geo fl geo rt fl geo lt geo fl fl fl fl fl lt'.split(' ');
+const NOMES={geo:'Geometria e mandala',fl:'Fine line',rt:'Retrato em linha',lt:'Lettering'};
+const g=document.getElementById('grid');let f='*',lim=24,vis=[];
+const nn=i=>String(i).padStart(2,'0');
+function draw(){vis=T.map((t,i)=>({t,i})).filter(o=>f=='*'||o.t==f);
+ g.innerHTML=vis.slice(0,lim).map((o,k)=>`<a href="img/g/${nn(o.i)}.webp" data-k="${k}"><img src="img/g/s/${nn(o.i)}.webp" alt="${NOMES[o.t]} por Tiago Freitas" draggable="false"></a>`).join('');
+ document.getElementById('mais').parentNode.hidden=vis.length<=lim}
+draw();
+document.getElementById('filt').onclick=e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('#filt button').forEach(x=>x.classList.toggle('on',x==b));f=b.dataset.f;lim=24;draw()};
+document.getElementById('mais').onclick=()=>{lim=99;draw()};
+const lb=document.getElementById('lb'),lbi=document.getElementById('lbi');let li=0;
+const show=k=>{li=(k+vis.length)%vis.length;lbi.src=`img/g/${nn(vis[li].i)}.webp`;lb.hidden=false};
+g.onclick=e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();show(+a.dataset.k)};
+lb.onclick=e=>{if(e.target.classList.contains('pv'))show(li-1);else if(e.target.classList.contains('nx'))show(li+1);else if(e.target!==lbi&&!e.target.classList.contains('quero'))lb.hidden=true};
+addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key=='Escape')lb.hidden=true;if(e.key=='ArrowLeft')show(li-1);if(e.key=='ArrowRight')show(li+1)});
+const q=document.createElement('button');q.className='btn quero';q.textContent='Quero uma assim';lb.appendChild(q);
+q.addEventListener('click',e=>{e.stopPropagation();lb.hidden=true;const o=vis[li];
+ const ch=document.querySelector(`#form input[name=tema][value="${{geo:'Mandala / geometria',fl:'Fine line',rt:'Retrato em linha',lt:'Lettering'}[o.t]}"]`);if(ch)ch.checked=true;
+ const id=document.getElementById('ideia');id.value='Vi no site uma peça assim ('+NOMES[o.t].toLowerCase()+', foto '+(o.i+1)+' dos trabalhos) e quero algo parecido. ';
+ document.getElementById('marcar').scrollIntoView();setTimeout(()=>id.focus({preventScroll:true}),700)});
+
+// DA FOTOGRAFIA À PELE
+(function(){const tabs=[...document.querySelectorAll('.pares-tabs button')],par=document.getElementById('par'),pa=document.getElementById('pa'),pb=document.getElementById('pb');
+ [0,1,2].forEach(i=>['a','b'].forEach(s=>{const im=new Image();im.src=`img/p/${i}${s}.webp`}));
+ tabs.forEach(t=>t.addEventListener('click',()=>{if(t.getAttribute('aria-selected')==='true')return;tabs.forEach(o=>o.setAttribute('aria-selected',o===t));
+  par.classList.add('tr');setTimeout(()=>{pa.src=`img/p/${t.dataset.p}a.webp`;pb.src=`img/p/${t.dataset.p}b.webp`;par.classList.remove('tr')},300)}))})();
+
+// PEDIDO → WhatsApp do estúdio
+const NUM='351919603570';
+const form=document.getElementById('form'),erro=document.getElementById('erro');
+form.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(form),nome=(d.get('nome')||'').trim();
+ if(!nome){erro.hidden=false;form.nome.focus();return}erro.hidden=true;
+ const l=['Olá, Tiago! Sou *'+nome+'* e queria um orçamento.','','*Estilo:* '+d.get('tema'),'*Primeira tatuagem:* '+d.get('prim'),'*Local do corpo:* '+((d.get('local')||'').trim()||'a definir'),'*Tamanho:* '+d.get('tamanho'),'*Disponibilidade:* '+d.get('quando')];
+ const ideia=(d.get('ideia')||'').trim();if(ideia)l.push('','*Ideia:* '+ideia);l.push('','(pedido enviado pelo site)');
+ window.open('https://wa.me/'+NUM+'?text='+encodeURIComponent(l.join('\n')),'_blank','noopener')});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
